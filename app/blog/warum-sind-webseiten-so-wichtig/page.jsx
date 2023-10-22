@@ -8,7 +8,7 @@ export default function BlogSeite() {
     date: "26. September 2023",
     author: {
       name: "Fabian Hanso",
-      role: "CTO & Founder von DaLu Services",
+      role: "CTO & Founder von Revice Media",
       image: "/Fabian_Profil.jpg",
     },
     content: [
