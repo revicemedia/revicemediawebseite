@@ -16,7 +16,7 @@ export default function Impressum() {
               <div>
                 <h2 className="font-bold">Angaben gemäß §5 TMG</h2>
                 <p className="mt-8">
-                  Revice Media GbR
+                  Revice Media UG
                   <br />
                   Gartenstraße 7
                   <br />
@@ -31,7 +31,7 @@ export default function Impressum() {
                     <span className="text-secondary-dalu">0160 / 92403158</span>
                   </a>
                   <br />
-                  <a href="mailto:hey@dalu-services.com">
+                  <a href="mailto:hey@revice-media.com.com">
                     E-Mail:{" "}
                     <span className="text-secondary-dalu">
                       hey@revice-media.com
