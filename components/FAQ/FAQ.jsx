@@ -12,12 +12,12 @@ const faqs = [
   {
     question: "Können bestehende Inhalte übernommen werden?",
     answer:
-      "Selbstverständlich. Wir beiten einen Service zur Datenübernahme von bestehenden Systemen an. Wie lange dies dann dauert, ist abhängig von der Menge der zu übertragenden Daten.",
+      "Selbstverständlich können bereits bestehende Inhalte von Ihren aktuellen Werbemedien übernommen werden. Sprechen Sie uns einfach darauf an.",
   },
   {
-    question: "Können Sie meine Domain erwerben?",
+    question: "Wie lange dauert ein Projekt bei Ihnen?",
     answer:
-      "Sollten Sie noch nicht im Besitz Ihrer eigenen Domain sein, so übernehmen wir gerne die Registrierung und die damit verbundene Verwaltung.",
+      "Genaue Angaben zur geplanten Projektlaufzeit erhalten Sie nach dem ersten Gespräch, in welchem Ihre Ziele und Wünsche besprochen werden. In der Regel liefern wir OnePager innerhalb einer Woche und Grafikvorlagen bereits innerhalb weniger Tage.",
   },
 ];
 

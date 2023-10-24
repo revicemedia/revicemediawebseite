@@ -19,7 +19,7 @@ export default function Hero() {
             </p>
             <div className="mt-10 flex items-center justify-center gap-x-6">
               <a
-                href="mailto:hey@dalu-services.com?subject=Allgemeine Anfrage"
+                href="mailto:hey@revice-media.com?subject=Allgemeine Anfrage"
                 target="_blank"
                 className="rounded-md bg-secondary-dalu px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-primary-dalu focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-400"
               >

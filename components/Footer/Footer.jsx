@@ -8,12 +8,12 @@ const navigation = {
     { name: "Social Media", href: "/socialmedia" },
   ],
   support: [
-    { name: "Komponenten", href: "https://components.dalu-services.com/" },
+    { name: "Komponenten", href: "https://komponenten.revice-media.com/" },
     { name: "Server Status", href: "https://status.digitalocean.com/" },
     { name: "Domains", href: "https://www.namesilo.com/" },
   ],
   legal: [
-    { name: "Kontakt", href: "/wir-sind-dalu" },
+    { name: "Kontakt", href: "/wir-sind-revice" },
     { name: "Impressum", href: "/impressum" },
     {
       name: "Streitschlichtung",
@@ -41,7 +41,7 @@ const navigation = {
     },
     {
       name: "Instagram",
-      href: "https://www.instagram.com/dalu_services/",
+      href: "https://www.instagram.com/revice_media/",
       icon: (props) => (
         <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
           <path

@@ -4,7 +4,7 @@ const people = [
   {
     name: "Fabian Hanso",
     title: "CTO & Founder",
-    email: "hey@dalu-services.com?body=Sehr%20geehrter%20Herr%20Hanso,",
+    email: "f.hanso@revice-media.com?body=Sehr%20geehrter%20Herr%20Hanso,",
     telephone: "015164310456",
     imageUrl: "/Fabian_Profil.jpg",
   },
@@ -18,7 +18,7 @@ const people = [
     name: "Luca Torres Neuer",
     title: "CMO & Founder",
     email:
-      "hey@dalu-services.com?body=Sehr%20geehrter%20Herr%20Torres%20Neuer,",
+      "l.torres@revice-media.com?body=Sehr%20geehrter%20Herr%20Torres%20Neuer,",
     telephone: "016092403158",
     imageUrl: "/luca.jpg",
   },
