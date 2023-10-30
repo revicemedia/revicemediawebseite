@@ -1,9 +1,9 @@
 import "./globals.css";
 
 export const metadata = {
-  title: "DaLu Services",
+  title: "Revice Media UG",
   description:
-    "DaLu Services ist eine Full-Service Agentur für kleine und mittelständige Unternehmen in ganz Deutschland.",
+    "Revice Media ist eine Full-Service Agentur für kleine und mittelständige Unternehmen in ganz Deutschland.",
 };
 
 export default function RootLayout({ children }) {
