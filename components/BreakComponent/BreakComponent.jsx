@@ -20,7 +20,7 @@ function BreakComponent() {
               Projekt anfragen
             </a>
             <a
-              href="/wir-sind-dalu"
+              href="/wir-sind-revice"
               className="text-sm font-semibold leading-6 text-white"
             >
               Zur Kontaktseite
