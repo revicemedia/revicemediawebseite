@@ -1,18 +1,13 @@
 import { EnvelopeIcon, PhoneIcon } from "@heroicons/react/20/solid";
+import { PresentationChartBarIcon } from "@heroicons/react/24/outline";
 
 const people = [
   {
     name: "Fabian Hanso",
     title: "CTO & Founder",
     email: "f.hanso@revice-media.com?body=Sehr%20geehrter%20Herr%20Hanso,",
-    telephone: "015164310456",
+    linkedin: "https://www.linkedin.com/in/fabian-hanso-2178a5185/",
     imageUrl: "/Fabian_Profil.jpg",
-  },
-  {
-    name: "Danny Kowalczuk",
-    title: "CFO & Founder",
-    email: "hey@dalu-services.com?body=Sehr%20geehrter%20Herr%20Kowalczuk,",
-    imageUrl: "/Danny.png",
   },
   {
     name: "Luca Torres Neuer",
@@ -20,6 +15,7 @@ const people = [
     email:
       "l.torres@revice-media.com?body=Sehr%20geehrter%20Herr%20Torres%20Neuer,",
     telephone: "016092403158",
+    linkedin: "",
     imageUrl: "/luca.jpg",
   },
 ];
@@ -39,7 +35,7 @@ export default function TeamTest() {
         </div>
         <ul
           role="list"
-          className="mx-auto max-w-5xl mt-20 grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3"
+          className="mx-auto max-w-5xl mt-20 grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2"
         >
           {people.map((person) => (
             <li
@@ -86,6 +82,21 @@ export default function TeamTest() {
                           aria-hidden="true"
                         />
                         Anrufen
+                      </a>
+                    </div>
+                  )}
+                  {person.linkedin && (
+                    <div className="-ml-px flex w-0 flex-1">
+                      <a
+                        href={`tel:${person.linkedin}`}
+                        className="relative inline-flex w-0 flex-1 items-center justify-center gap-x-3 rounded-br-lg border border-transparent py-4 text-sm font-semibold text-gray-900"
+                      >
+                        <img
+                          src="./linkedin.svg"
+                          className="h-5 w-5 text-gray-400"
+                          aria-hidden="true"
+                        />
+                        LinkedIn
                       </a>
                     </div>
                   )}

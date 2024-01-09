@@ -1,7 +1,6 @@
 import Navigation from "@/components/Navigation/Navigation";
 import Hero from "@/components/Hero/Hero";
 import Footer from "@/components/Footer/Footer";
-import Services from "@/components/Services/Services";
 import TextImage from "@/components/TextImage/TextImage";
 import FAQ from "@/components/FAQ/FAQ";
 import Customers from "@/components/Customers/Customers";
