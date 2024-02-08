@@ -8,7 +8,7 @@ const navigation = {
     { name: "Social Media", href: "/socialmedia" },
   ],
   support: [
-    { name: "Komponenten", href: "https://komponenten.revice-media.com/" },
+    // { name: "Komponenten", href: "https://komponenten.revice-media.com/" },
     { name: "Server Status", href: "https://status.digitalocean.com/" },
     { name: "Domains", href: "https://www.namesilo.com/" },
   ],
@@ -23,7 +23,7 @@ const navigation = {
   social: [
     {
       name: "LinkedIn",
-      href: "https://www.linkedin.com/company/dalu-services/",
+      href: "https://www.linkedin.com/company/revicemedia/",
       icon: (props) => (
         <svg
           fill="currentColor"

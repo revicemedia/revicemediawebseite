@@ -1,8 +1,8 @@
 import ClientProjects from "@/components/ClientProjects/ClientProjects";
 import Footer from "@/components/Footer/Footer";
-import ImageGrid from "@/components/ImageGrid/ImageGrid";
 import Navigation from "@/components/Navigation/Navigation";
-import SubPageContent from "@/components/SubPageContent/SubPageContent";
+import PhotoCustomers from "@/components/PhotoCustomers/PhotoCustomers";
+import PhotoText from "@/components/PhotoText/PhotoText";
 import SubPageHeader from "@/components/SubPageHeader/SubPageHeader";
 import Vorteile from "@/components/Vorteile/Vorteile";
 
@@ -20,8 +20,8 @@ export default function Fotografie() {
     <div>
       <Navigation />
       <SubPageHeader headline="Fotografie" text="" />
-      <SubPageContent data={content} />
-      <ImageGrid />
+      <PhotoText data={content} />
+      <PhotoCustomers />
       <Vorteile />
       <ClientProjects />
       <Footer />
