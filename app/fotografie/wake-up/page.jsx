@@ -1,7 +1,6 @@
-import React from "react";
+import { redirect } from "next/navigation";
 
-function page() {
-  return <div>page</div>;
+// Alte URL → Cases (der WAKE-UP-Case ist vorerst ausgeblendet)
+export default function WakeUp() {
+  redirect("/cases?kategorie=foto");
 }
-
-export default page;

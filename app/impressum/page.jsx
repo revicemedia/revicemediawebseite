@@ -1,47 +1,47 @@
-import ClientProjects from "@/components/ClientProjects/ClientProjects";
 import Footer from "@/components/Footer/Footer";
 import Navigation from "@/components/Navigation/Navigation";
 import SubPageHeader from "@/components/SubPageHeader/SubPageHeader";
-import Vorteile from "@/components/Vorteile/Vorteile";
+
+export const metadata = { title: "Impressum" };
 
 export default function Impressum() {
   return (
     <div>
       <Navigation />
-      <SubPageHeader headline="Impressum" text="" />
-      <div className="bg-white py-24 sm:py-32">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+      <SubPageHeader eyebrow="Rechtliches" headline="Impressum" />
+      <div className="bg-white py-16 sm:py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-none">
-            <div className="mt-16 grid max-w-xl grid-cols-1 gap-8 text-base leading-7 text-gray-700 lg:max-w-none lg:grid-cols-2 lg:gap-16">
-              <div>
-                <h2 className="font-bold">Angaben gemäß §5 TMG</h2>
-                <p className="mt-8">
-                  Revice Media UG
+            <div className="grid max-w-xl grid-cols-1 gap-6 text-base leading-7 text-navy/70 lg:max-w-none lg:grid-cols-2">
+              <div className="rounded-3xl border border-navy/10 p-8">
+                <h2 className="font-display text-xl font-semibold text-navy">Angaben gemäß §5 TMG</h2>
+                <p className="mt-4">
+                  Revice Media
                   <br />
                   Gartenstraße 7
                   <br />
                   56412 Ruppach-Goldhausen
                   <br />
                   <br />
-                  Vertreten durch: Luca Torres Neuer & Fabian Hanso
+                  Vertreten durch: Fabian Hanso
                   <br />
                   <br />
-                  <a href="tel: 016092403158">
+                  <a href="tel:+4916092403158">
                     Telefon:{" "}
-                    <span className="text-secondary-dalu">0160 / 92403158</span>
+                    <span className="text-brand">0160 / 92403158</span>
                   </a>
                   <br />
-                  <a href="mailto:hey@revice-media.com.com">
+                  <a href="mailto:hey@revice-media.com">
                     E-Mail:{" "}
-                    <span className="text-secondary-dalu">
+                    <span className="text-brand">
                       hey@revice-media.com
                     </span>
                   </a>
                 </p>
               </div>
-              <div>
-                <h2 className="font-bold">Datenerhebung</h2>
-                <p className="mt-8">
+              <div className="rounded-3xl border border-navy/10 p-8">
+                <h2 className="font-display text-xl font-semibold text-navy">Datenerhebung</h2>
+                <p className="mt-4">
                   Wir erheben keine personenbezogenen Daten. Der Server
                   speichert standardgemäß Daten wie IP-Adresse, Land und Dauer
                   des Besuches. Diese Daten werden durch uns nicht erhoben,
@@ -49,9 +49,9 @@ export default function Impressum() {
                   Sicherheit und werden selbstverständlich nicht verbreitet.
                 </p>
               </div>
-              <div>
-                <h2 className="font-bold">Hafung für Inhalte und Links</h2>
-                <p className="mt-8">
+              <div className="rounded-3xl border border-navy/10 p-8">
+                <h2 className="font-display text-xl font-semibold text-navy">Haftung für Inhalte und Links</h2>
+                <p className="mt-4">
                   Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene
                   Inhalte auf diesen Seiten nach den allgemeinen Gesetzen
                   verantwortlich. Nach §§ 8 bis 10 TMG sind wir als
@@ -78,8 +78,6 @@ export default function Impressum() {
           </div>
         </div>
       </div>
-      <Vorteile />
-      <ClientProjects />
       <Footer />
     </div>
   );

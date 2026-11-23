@@ -3,22 +3,22 @@ import BlogFAQ from "../FAQ/BlogFAQ";
 
 export default function BlogDetails({ data }) {
   return (
-    <div className="w-full py-8 mb-20 bg-white">
-      <div className="max-w-3xl ml-auto mr-auto leading-7 text-base px-4 lg:px-8 text-gray-800">
-        <div className="flex">
+    <div className="w-full bg-white pb-24 pt-12 sm:pt-16">
+      <div className="mx-auto max-w-3xl px-4 text-lg leading-8 text-navy/75 sm:px-6 lg:px-8">
+        <div className="flex flex-wrap gap-2">
           {data.categories.map((tag, index) => (
             <div
               key={index}
-              className="font-semibold text-secondary-dalu max-w-max pr-5"
+              className="rounded-full bg-brand-50 px-3 py-1 text-xs font-semibold text-brand"
             >
               {tag}
             </div>
           ))}
         </div>
-        <h1 className="font-bold text-3xl text-gray-800 pt-2 sm:text-4xl">
+        <h1 className="mt-6 font-display text-4xl font-semibold leading-tight tracking-tight text-navy sm:text-5xl">
           {data.headline}
         </h1>
-        <p className="pt-4 text-gray-800">Veröffentlicht: {data.date}</p>
+        <p className="mt-4 text-sm text-navy/50">Veröffentlicht: {data.date}</p>
         <Image
           src={data.coverImage}
           width={800}
@@ -30,12 +30,12 @@ export default function BlogDetails({ data }) {
           {data.content.map((cont, index) => (
             <div key={index}>
               {cont.headline && (
-                <h4 className="text-xl font-bold text-gray-800 pt-12">
+                <h4 className="pt-12 font-display text-2xl font-semibold text-navy">
                   {cont.headline}
                 </h4>
               )}
               {cont.p.map((paragraph) => (
-                <p key={paragraph.index} className="pt-8 text-gray-800">
+                <p key={paragraph.index} className="pt-6">
                   {paragraph.content}
                 </p>
               ))}
@@ -43,14 +43,14 @@ export default function BlogDetails({ data }) {
           ))}
           {data.blogfaq.display && (
             <>
-              <h4 className="text-xl font-bold text-gray-800 pt-12">
+              <h4 className="pt-12 font-display text-2xl font-semibold text-navy">
                 {data.blogfaq.headline}
               </h4>
               <BlogFAQ data={data} />
             </>
           )}
         </div>
-        <div className="relative mt-12 pt-12 flex items-center gap-x-4">
+        <div className="relative mt-16 flex items-center gap-x-4 border-t border-navy/10 pt-10">
           <Image
             src={data.author.image}
             width={200}
@@ -59,8 +59,8 @@ export default function BlogDetails({ data }) {
             className="h-12 w-12 rounded-full bg-gray-50"
           />
           <div className="text-sm leading-6 pr-5">
-            <p className="font-semibold text-gray-900">{data.author.name}</p>
-            <p className="text-gray-600">{data.author.role}</p>
+            <p className="font-semibold text-navy">{data.author.name}</p>
+            <p className="text-navy/60">{data.author.role}</p>
           </div>
         </div>
       </div>

@@ -1,42 +1,56 @@
+// Kundenlogos – laufen als Endlos-Band über Navy.
+// Weiße SVGs: klein & dezent. `large` → größeres Logo (optional mit `name` daneben), `white` färbt weiß.
+const logos = [
+  { src: "/kunden/2die4.png", alt: "2DIE4 Sports", large: true },
+  { src: "/kunden/waeller-united.svg", alt: "JSG Wäller United", name: "JSG Wäller United", large: true, white: true },
+  { src: "/kunden/anitahanso.svg", alt: "Logopädie Anita Hanso" },
+  { src: "/kunden/Haarkulade_dunkel.svg", alt: "Haarkulade" },
+  { src: "/kunden/Melodia.svg", alt: "Melodia" },
+];
+
 export default function Customers() {
+  // Liste mehrfach wiederholen, damit das Band bei wenigen Logos lückenlos läuft
+  const row = [...logos, ...logos, ...logos];
+
   return (
-    <div className="bg-primary-dalu py-24 sm:py-32">
-      <div className="mx-auto max-w-2xl lg:text-center">
-        <p className="mt-2 text-3xl px-4 font-bold tracking-tight text-white sm:text-4xl mb-16 text-center">
-          Unsere Kunden
+    <section className="bg-navy py-16 sm:py-20">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <p className="text-center text-sm font-medium text-white/60">
+          Unternehmen, Vereine und Marken, die uns vertrauen
         </p>
       </div>
-      <div className="mx-auto max-w-7xl px-6 lg:px-4">
-        <div className="-mx-6 px-4 grid grid-cols-1 gap-0.5 overflow-hidden sm:mx-0 sm:rounded-2xl md:grid-cols-3">
-          <div className="bg-white/5 p-8 sm:p-10 rounded-lg">
-            <img
-              className="max-h-12 w-full object-contain"
-              src="/kunden/anitahanso.svg"
-              alt="Transistor"
-              width={158}
-              height={48}
-            />
-          </div>
-          <div className="bg-white/5 p-6 sm:p-10 rounded-lg">
-            <img
-              className="max-h-12 w-full object-contain"
-              src="/kunden/Haarkulade_dunkel.svg"
-              alt="Reform"
-              width={158}
-              height={48}
-            />
-          </div>
-          <div className="bg-white/5 p-6 sm:p-10 rounded-lg">
-            <img
-              className="max-h-12 w-full object-contain"
-              src="/kunden/Melodia.svg"
-              alt="Tuple"
-              width={158}
-              height={48}
-            />
-          </div>
+      <div className="marquee-mask mt-10 overflow-hidden">
+        <div className="flex w-max animate-marquee items-center">
+          {[0, 1].map((copy) => (
+            <ul key={copy} aria-hidden={copy === 1} className="flex shrink-0 items-center">
+              {row.map((logo, i) => (
+                <li key={`${logo.src}-${i}`} className="px-10 sm:px-14">
+                  {logo.large ? (
+                    <div className="flex items-center gap-2.5 opacity-70 transition-opacity hover:opacity-100">
+                      <img
+                        src={logo.src}
+                        alt={copy === 0 && i < logos.length ? logo.alt : ""}
+                        className={`h-8 w-auto object-contain sm:h-10 ${logo.white ? "brightness-0 invert" : ""}`}
+                      />
+                      {logo.name && (
+                        <span aria-hidden="true" className="whitespace-nowrap font-display text-sm font-semibold text-white sm:text-base">
+                          {logo.name}
+                        </span>
+                      )}
+                    </div>
+                  ) : (
+                    <img
+                      src={logo.src}
+                      alt={copy === 0 && i < logos.length ? logo.alt : ""}
+                      className="h-9 w-40 object-contain opacity-70 transition-opacity hover:opacity-100 sm:h-11"
+                    />
+                  )}
+                </li>
+              ))}
+            </ul>
+          ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 }

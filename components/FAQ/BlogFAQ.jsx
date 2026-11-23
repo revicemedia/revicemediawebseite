@@ -7,14 +7,14 @@ export default function BlogFAQ({ data }) {
   return (
     <div className="bg-white">
       <div className="mx-auto max-w-7xl">
-        <div className="mx-auto max-w-4xl divide-y divide-gray-900/10">
-          <dl className="mt-5 mb-5 space-y-6 divide-y divide-gray-900/10">
+        <div className="mx-auto max-w-4xl divide-y divide-navy/10">
+          <dl className="mt-5 mb-5 space-y-6 divide-y divide-navy/10">
             {data.blogfaq.data.map((faq) => (
               <Disclosure as="div" key={faq.question} className="pt-6">
                 {({ open }) => (
                   <>
                     <dt>
-                      <Disclosure.Button className="flex w-full items-start justify-between text-left text-gray-900">
+                      <Disclosure.Button className="flex w-full items-start justify-between text-left text-navy">
                         <span className="text-base font-semibold leading-7">
                           {faq.headline}
                         </span>

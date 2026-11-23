@@ -1,275 +1,287 @@
 "use client";
 
-import { Fragment, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import { Dialog, Disclosure, Popover, Transition } from "@headlessui/react";
-
-import { ChevronDownIcon, ChevronUpIcon } from "@heroicons/react/20/solid";
+import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import {
   XMarkIcon,
   Bars3Icon,
-  CommandLineIcon,
-  PaintBrushIcon,
-  MagnifyingGlassIcon,
-  ChartPieIcon,
-  PhotoIcon,
-  ShoppingBagIcon,
-  CameraIcon,
-  VideoCameraIcon,
-  BuildingStorefrontIcon,
+  ArrowUpRightIcon,
+  ArrowRightIcon,
 } from "@heroicons/react/24/outline";
+import { focusServices, moreServices } from "@/components/data/services";
+import { brand } from "@/brandConfig";
+import { InstagramIcon } from "@/components/ui/SocialIcons";
 
-const products = [
-  {
-    name: "Webentwicklung",
-    description:
-      "Umsetzung von Webseiten jeglicher Art und in allen Größen. Jederzeit auf Wunsch skalier- und erweiterbar.",
-    icon: CommandLineIcon,
-    href: "/webentwicklung",
-  },
-  {
-    name: "Shopsysteme",
-    description:
-      "Von der Erweiterung eines bestehenden Shopsystems bis hin zur Entwicklung passgenauer Individualsysteme.",
-    icon: ShoppingBagIcon,
-    href: "/shopsysteme",
-  },
-  {
-    name: "Webdesign",
-    description:
-      "Von der einzelnen Komponente bis hin zur komplexen Unternehmenspräsenz bieten wir Ihnen im Webdesign alles.",
-    icon: PaintBrushIcon,
-    href: "/webdesign",
-  },
-  {
-    name: "Grafikdesign",
-    description:
-      "Logos, Visitenkarten, Flyer und weitere Druckprodukte sowie digitale Werbeprodukte können bei uns in Auftrag gegeben werden.",
-    icon: PhotoIcon,
-    href: "/grafikdesign",
-  },
-  {
-    name: "Fotografie",
-    description:
-      "Egal ob Hochzeitsbegleitung, Pärchen-Shootings, Produktfotografie oder Eventfotografie.",
-    icon: CameraIcon,
-    href: "/fotografie",
-  },
-  {
-    name: "Videografie",
-    description:
-      "Logos, Visitenkarten, Flyer und weitere Druckprodukte sowie digitale Werbeprodukte können bei uns in Auftrag gegeben werden.",
-    icon: VideoCameraIcon,
-    href: "/videografie",
-  },
-  {
-    name: "Suchmaschinenoptimierung (SEO)",
-    description:
-      "In Suchmaschinen gefunden zu werden ist für ein Unternehmen von großer Bedeutung. Wir unterstützen Sie dabei gerne!",
-    icon: MagnifyingGlassIcon,
-    href: "/seo",
-  },
-  {
-    name: "Social Media",
-    description:
-      "Egal ob einzelne oder mehrere Kampagnen. Wie unterstützen Sie bei Ihren online und offline Marketingkampagnen",
-    icon: ChartPieIcon,
-    href: "/socialmedia",
-  },
-  {
-    name: "Digitale Speisekarte",
-    description:
-      "Wir erstellen individuelle und erweiterbare digitale Lösungen für Ihr Unternehmen. So ist alles jederzeit auf dem aktuellsten Stand.",
-    icon: BuildingStorefrontIcon,
-    href: "https://www.meinedigitalespeisekarte.de",
-  },
+const links = [
+  { name: "Cases", href: "/cases", match: "/cases" },
+  { name: "Über uns", href: "/wir-sind-revice", match: "/wir-sind-revice" },
+  { name: "Blog", href: "/#blog", match: "/blog" },
 ];
 
-function classNames(...classes) {
-  return classes.filter(Boolean).join(" ");
+// true, wenn der Pfad dem Bereich entspricht (inkl. Unterseiten)
+const isActive = (pathname, base) =>
+  !!pathname && !!base && (pathname === base || pathname.startsWith(`${base}/`));
+
+const allServices = [...focusServices, ...moreServices];
+
+const mail = `mailto:${brand.contact.email}?subject=Projektanfrage`;
+
+function ServiceLink({ item, compact = false, active = false }) {
+  return (
+    <a
+      href={item.href}
+      target={item.external ? "_blank" : undefined}
+      rel={item.external ? "noopener noreferrer" : undefined}
+      aria-current={active ? "page" : undefined}
+      className={`group flex gap-4 rounded-2xl transition-colors ${
+        active ? (compact ? "bg-white ring-1 ring-navy/10" : "bg-mist") : "hover:bg-mist"
+      } ${compact ? "items-center p-3" : "p-4"}`}
+    >
+      <div
+        className={`flex flex-none items-center justify-center rounded-xl transition-colors ${
+          active
+            ? "bg-navy text-white"
+            : "bg-brand-50 text-brand group-hover:bg-navy group-hover:text-white"
+        } ${compact ? "h-9 w-9" : "h-11 w-11"}`}
+      >
+        <item.icon className="h-5 w-5" aria-hidden="true" />
+      </div>
+      <div>
+        <p className="flex items-center gap-1 text-sm font-semibold text-navy">
+          {item.shortName || item.name}
+          {item.external && <ArrowUpRightIcon className="h-3 w-3 text-navy/40" />}
+        </p>
+        {!compact && (
+          <p className="mt-0.5 text-xs leading-5 text-navy/55">{item.tagline}</p>
+        )}
+      </div>
+    </a>
+  );
 }
 
 export default function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
+  const servicesActive = allServices.some((s) => !s.external && isActive(pathname, s.href));
 
-  const [isOpen, setIsOpen] = useState(false);
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
-    <header className="relative isolate z-10 bg-white">
+    <header
+      className={`sticky top-0 z-50 border-b transition-all duration-300 ${
+        scrolled
+          ? "border-navy/10 bg-white/85 backdrop-blur-lg"
+          : "border-transparent bg-white"
+      }`}
+    >
       <nav
-        className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
-        aria-label="Global"
+        className="mx-auto flex h-[72px] max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8"
+        aria-label="Hauptnavigation"
       >
-        <div className="flex lg:flex-1">
-          <a href="/" className="-m-1.5 p-1.5">
-            <span className="sr-only">DaLu Services</span>
-            <img className="h-8 w-auto" src="/logo.svg" alt="" />
-          </a>
-        </div>
-        <div className="flex lg:hidden">
-          <button
-            type="button"
-            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
-            onClick={() => setMobileMenuOpen(true)}
-          >
-            <span className="sr-only">Open main menu</span>
-            <Bars3Icon className="h-6 w-6" aria-hidden="true" />
-          </button>
-        </div>
-        <Popover.Group className="hidden lg:flex lg:gap-x-12">
-          <Popover>
-            <Popover.Button
-              onClick={() => setIsOpen(!isOpen)}
-              className="group flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900 focus:outline-none hover:text-secondary-dalu"
-            >
-              Dienstleistungen
-              {isOpen ? (
-                <ChevronUpIcon
-                  className="h-5 w-5 flex-none text-gray-400 group-hover:text-secondary-dalu"
-                  aria-hidden="true"
-                />
-              ) : (
-                <ChevronDownIcon
-                  className="h-5 w-5 flex-none text-gray-400 group-hover:text-secondary-dalu"
-                  aria-hidden="true"
-                />
-              )}
-            </Popover.Button>
+        <a href="/" className="-m-1.5 p-1.5 lg:flex-1">
+          <span className="sr-only">Revice Media</span>
+          <img className="h-8 w-auto" src="/logo.svg" alt="" />
+        </a>
 
-            <Transition
-              as={Fragment}
-              enter="transition ease-out duration-200"
-              enterFrom="opacity-0 -translate-y-1"
-              enterTo="opacity-100 translate-y-0"
-              leave="transition ease-in duration-150"
-              leaveFrom="opacity-100 translate-y-0"
-              leaveTo="opacity-0 -translate-y-1"
-            >
-              <Popover.Panel className="absolute inset-x-0 top-0 -z-10 bg-white pt-14 shadow-lg ring-1 ring-gray-900/5">
-                <div className="mx-auto grid max-w-7xl grid-cols-4 gap-x-4 px-6 py-10 lg:px-8 xl:gap-x-8">
-                  {products.map((item) => (
-                    <div
-                      key={item.name}
-                      className="group relative rounded-lg p-6 text-sm leading-6 hover:bg-light-gray-dalu"
-                    >
-                      <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-                        <item.icon
-                          className="h-6 w-6 text-gray-600 group-hover:text-secondary-dalu"
-                          aria-hidden="true"
-                        />
+        <Popover.Group className="hidden lg:flex lg:items-center lg:gap-x-1">
+          <Popover className="relative">
+            {({ open }) => (
+              <>
+                <Popover.Button
+                  className={`flex items-center gap-x-1 rounded-full px-4 py-2 text-sm font-medium transition-colors focus:outline-none ${
+                    open
+                      ? "bg-mist text-navy"
+                      : servicesActive
+                      ? "bg-brand-50 text-navy"
+                      : "text-navy/75 hover:text-navy"
+                  }`}
+                >
+                  Leistungen
+                  <ChevronDownIcon
+                    className={`h-4 w-4 transition-transform duration-300 ${
+                      open || servicesActive ? `${open ? "rotate-180 " : ""}text-brand` : "text-navy/40"
+                    }`}
+                    aria-hidden="true"
+                  />
+                </Popover.Button>
+
+                <Transition
+                  as={Fragment}
+                  enter="transition ease-out duration-200"
+                  enterFrom="opacity-0 translate-y-2"
+                  enterTo="opacity-100 translate-y-0"
+                  leave="transition ease-in duration-150"
+                  leaveFrom="opacity-100 translate-y-0"
+                  leaveTo="opacity-0 translate-y-2"
+                >
+                  <Popover.Panel className="absolute left-1/2 top-full mt-3 w-[52rem] -translate-x-1/2 overflow-hidden rounded-3xl border border-navy/10 bg-white shadow-2xl shadow-navy/10">
+                    <div className="grid grid-cols-5">
+                      <div className="col-span-3 p-4">
+                        <p className="px-4 pb-2 pt-2 text-xs font-semibold uppercase tracking-[0.18em] text-navy/40">
+                          Unsere Schwerpunkte
+                        </p>
+                        <div className="grid grid-cols-2 gap-1">
+                          {focusServices.map((item) => (
+                            <ServiceLink key={item.slug} item={item} active={isActive(pathname, item.href)} />
+                          ))}
+                        </div>
                       </div>
-                      <a
-                        href={item.href}
-                        className="mt-6 block font-semibold text-gray-900"
-                      >
-                        {item.name}
-                        <span className="absolute inset-0" />
-                      </a>
-                      <p className="mt-1 text-gray-600">{item.description}</p>
+                      <div className="col-span-2 bg-mist p-4">
+                        <p className="px-3 pb-2 pt-2 text-xs font-semibold uppercase tracking-[0.18em] text-navy/40">
+                          Außerdem
+                        </p>
+                        <div className="grid gap-0.5">
+                          {moreServices.map((item) => (
+                            <ServiceLink key={item.slug} item={item} compact active={isActive(pathname, item.href)} />
+                          ))}
+                        </div>
+                      </div>
                     </div>
-                  ))}
-                </div>
-              </Popover.Panel>
-            </Transition>
+                    <a
+                      href="/cases"
+                      className="group flex items-center justify-between border-t border-navy/10 bg-navy px-8 py-4 text-sm font-medium text-white"
+                    >
+                      <span>
+                        Sehen Sie sich an, was wir bereits umgesetzt haben
+                      </span>
+                      <span className="flex items-center gap-2 font-semibold">
+                        Zu den Cases
+                        <ArrowRightIcon className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                      </span>
+                    </a>
+                  </Popover.Panel>
+                </Transition>
+              </>
+            )}
           </Popover>
-          <a
-            href="/#Blog"
-            className="text-sm font-semibold leading-6 text-gray-900 hover:text-secondary-dalu"
-          >
-            Blog
-          </a>
-          <a
-            href="/wir-sind-revice"
-            className="text-sm font-semibold leading-6 text-gray-900 hover:text-secondary-dalu"
-          >
-            Über uns
-          </a>
+          {links.map((link) => {
+            const active = isActive(pathname, link.match);
+            return (
+              <a
+                key={link.name}
+                href={link.href}
+                aria-current={active ? "page" : undefined}
+                className={`rounded-full px-4 py-2 text-sm font-medium transition-colors ${
+                  active ? "bg-brand-50 text-navy" : "text-navy/75 hover:text-navy"
+                }`}
+              >
+                {link.name}
+              </a>
+            );
+          })}
         </Popover.Group>
-        <div className="hidden lg:flex lg:flex-1 lg:justify-end pointer">
+
+        <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:gap-5">
           <a
             href="https://www.instagram.com/revice_media/"
             target="_blank"
-            className="w-auto pointer"
+            rel="noopener noreferrer"
+            className="text-navy/50 transition-colors hover:text-brand"
           >
-            <img
-              src="/logo-instagram.svg"
-              alt="Instagram"
-              height={20}
-              width={20}
-            />
+            <span className="sr-only">Instagram</span>
+            <InstagramIcon className="h-5 w-5" />
+          </a>
+          <a href={mail} className="btn-primary !px-5 !py-2.5">
+            Projekt anfragen
           </a>
         </div>
+
+        <button
+          type="button"
+          className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-navy/15 text-navy lg:hidden"
+          onClick={() => setMobileMenuOpen(true)}
+        >
+          <span className="sr-only">Menü öffnen</span>
+          <Bars3Icon className="h-5 w-5" aria-hidden="true" />
+        </button>
       </nav>
-      <Dialog
-        as="div"
-        className="lg:hidden"
-        open={mobileMenuOpen}
-        onClose={setMobileMenuOpen}
-      >
-        <div className="fixed inset-0 z-10" />
-        <Dialog.Panel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
-          <div className="flex items-center justify-between">
-            <a href="/" className="-m-1.5 p-1.5 focus:outline-none">
-              <span className="sr-only">DaLu Services GbR</span>
-              <img
-                className="h-8 w-auto focus:outline-none"
-                src="/logo.svg"
-                alt=""
-              />
+
+      <Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
+        <div className="fixed inset-0 z-50 bg-navy/20 backdrop-blur-sm" />
+        <Dialog.Panel className="fixed inset-y-0 right-0 z-50 flex w-full flex-col overflow-y-auto bg-white px-4 sm:max-w-sm sm:border-l sm:border-navy/10 sm:px-6">
+          <div className="flex h-[72px] flex-none items-center justify-between">
+            <a href="/" className="-m-1.5 p-1.5">
+              <span className="sr-only">Revice Media</span>
+              <img className="h-8 w-auto" src="/logo.svg" alt="" />
             </a>
             <button
               type="button"
-              className="-m-2.5 rounded-md p-2.5 text-gray-700"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-navy/15 text-navy"
               onClick={() => setMobileMenuOpen(false)}
             >
-              <span className="sr-only">Close menu</span>
-              <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+              <span className="sr-only">Menü schließen</span>
+              <XMarkIcon className="h-5 w-5" aria-hidden="true" />
             </button>
           </div>
-          <div className="mt-6 flow-root">
-            <div className="-my-6 divide-y divide-gray-500/10">
-              <div className="space-y-2 py-6">
-                <Disclosure as="div" className="-mx-3">
-                  {({ open }) => (
-                    <>
-                      <Disclosure.Button className="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
-                        Dienstleistungen
-                        <ChevronDownIcon
-                          className={classNames(
-                            open ? "rotate-180" : "",
-                            "h-5 w-5 flex-none"
-                          )}
-                          aria-hidden="true"
-                        />
-                      </Disclosure.Button>
-                      <Disclosure.Panel className="mt-2 space-y-2">
-                        {[...products].map((item) => (
-                          <Disclosure.Button
-                            key={item.name}
-                            as="a"
-                            href={item.href}
-                            className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-light-gray-dalu"
-                          >
-                            {item.name}
-                          </Disclosure.Button>
-                        ))}
-                      </Disclosure.Panel>
-                    </>
-                  )}
-                </Disclosure>
+
+          <div className="mt-6 flex-1 divide-y divide-navy/10">
+            <Disclosure as="div" defaultOpen>
+              {({ open }) => (
+                <>
+                  <Disclosure.Button
+                    className={`flex w-full items-center justify-between py-4 font-display text-2xl font-semibold ${
+                      servicesActive ? "text-brand" : "text-navy"
+                    }`}
+                  >
+                    Leistungen
+                    <ChevronDownIcon
+                      className={`h-6 w-6 transition-transform ${open ? "rotate-180 text-brand" : "text-navy/40"}`}
+                      aria-hidden="true"
+                    />
+                  </Disclosure.Button>
+                  <Disclosure.Panel className="grid grid-cols-1 gap-0.5 pb-4">
+                    {allServices.map((item) => {
+                      const active = isActive(pathname, item.href);
+                      return (
+                        <a
+                          key={item.slug}
+                          href={item.href}
+                          aria-current={active ? "page" : undefined}
+                          className={`flex items-center gap-3 rounded-xl px-2 py-2.5 text-sm font-medium ${
+                            active ? "bg-brand-50 text-navy" : "text-navy/80 hover:bg-mist"
+                          }`}
+                        >
+                          <item.icon className={`h-5 w-5 ${active ? "text-navy" : "text-brand"}`} />
+                          {item.name}
+                          {active && <span className="ml-auto mr-1 h-1.5 w-1.5 rounded-full bg-brand" />}
+                        </a>
+                      );
+                    })}
+                  </Disclosure.Panel>
+                </>
+              )}
+            </Disclosure>
+            {links.map((link) => {
+              const active = isActive(pathname, link.match);
+              return (
                 <a
-                  href="/#Blog"
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                  key={link.name}
+                  href={link.href}
+                  aria-current={active ? "page" : undefined}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className={`flex items-center gap-3 py-4 font-display text-2xl font-semibold ${
+                    active ? "text-brand" : "text-navy"
+                  }`}
                 >
-                  Blog
+                  {link.name}
+                  {active && <span className="h-2 w-2 rounded-full bg-brand" />}
                 </a>
-                <a
-                  href="/wir-sind-revice"
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                >
-                  Über uns
-                </a>
-              </div>
-            </div>
+              );
+            })}
+          </div>
+
+          <div className="sticky bottom-0 -mx-4 border-t border-navy/10 bg-white px-4 py-5 sm:-mx-6 sm:px-6">
+            <a href={mail} className="btn-primary w-full">
+              Projekt anfragen
+            </a>
           </div>
         </Dialog.Panel>
       </Dialog>

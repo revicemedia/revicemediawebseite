@@ -1,17 +1,21 @@
 export const brand = {
   colors: {
-    primaryColor: "#3d3d3d",
-    secondaryColor: "#dedede",
+    primaryColor: "#113042",
+    secondaryColor: "#3790af",
   },
   headlines: {
-    heroHeadline: "Wir unterstützen Sie bei der Umsetzung Ihrer Projekte",
+    heroLines: ["Web. App. Social.", "Foto & Video."],
   },
   floatingText: {
     heroDescription:
-      "Unsere Experten beraten Sie von der Gestaltung bis zum fertigen Ergebnis und stehen Ihnen auch im Anschluss stets bei Fragen zur Verfügung.",
+      "Wir sind eine junge Werbeagentur und begleiten Unternehmen, Vereine und Marken von der ersten Idee bis zum fertigen Ergebnis – kreativ, digital und aus einer Hand.",
   },
   cta: {
     heroProjectRequest: "Projekt anfragen",
-    heroLearnMore: "Mehr erfahren",
+    heroLearnMore: "Cases ansehen",
+  },
+  contact: {
+    email: "hey@revice-media.com",
+    region: "Koblenz · Limburg · Montabaur",
   },
 };

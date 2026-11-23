@@ -24,7 +24,7 @@ const people = [
 
 export default function Team() {
   return (
-    <div className="bg-gray-dalu py-24 sm:py-32">
+    <div className="bg-gray-dalu py-20 sm:py-24">
       <div className="mx-auto max-w-7xl px-6 text-center lg:px-8">
         <div className="mx-auto max-w-2xl">
           <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
