@@ -9,6 +9,9 @@ import BlogSectionSmall from "@/components/BlogSectionSmall/BlogSectionSmall";
 import CTA from "@/components/ui/CTA";
 import Footer from "@/components/Footer/Footer";
 
+// Blog-Vorschau kommt aus dem CMS
+export const revalidate = 3600;
+
 export const metadata = {
   alternates: { canonical: "/" },
 };

@@ -86,3 +86,48 @@ body {
     animation-iteration-count: 1 !important;
   }
 }
+
+/* Artikeltext aus dem CMS (Blog) */
+@layer components {
+  .rich-text {
+    @apply text-lg leading-8 text-navy/70;
+  }
+  .rich-text > * + * {
+    @apply mt-6;
+  }
+  .rich-text > p:first-child {
+    @apply text-navy/80 sm:text-xl sm:leading-9;
+  }
+  .rich-text h2 {
+    @apply !mt-14 scroll-mt-28 font-display text-2xl font-semibold tracking-tight text-navy sm:text-3xl;
+  }
+  .rich-text h3 {
+    @apply !mt-10 scroll-mt-28 font-display text-xl font-semibold text-navy;
+  }
+  .rich-text h2 + *,
+  .rich-text h3 + * {
+    @apply !mt-4;
+  }
+  .rich-text strong {
+    @apply font-semibold text-navy;
+  }
+  .rich-text a {
+    @apply font-medium text-brand underline decoration-brand/30 underline-offset-4 transition-colors hover:decoration-brand;
+  }
+  .rich-text ul {
+    @apply list-disc space-y-2 pl-6 marker:text-brand;
+  }
+  .rich-text ol {
+    @apply list-decimal space-y-2 pl-6 marker:font-semibold marker:text-brand;
+  }
+  .rich-text blockquote {
+    @apply border-l-2 border-brand pl-6 font-display text-xl italic text-navy;
+  }
+  .rich-text img,
+  .rich-text picture img {
+    @apply !mt-10 w-full rounded-3xl;
+  }
+  .rich-text hr {
+    @apply !my-12 border-navy/10;
+  }
+}

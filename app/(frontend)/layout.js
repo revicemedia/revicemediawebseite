@@ -98,12 +98,15 @@ export default function RootLayout({ children }) {
             __html: "document.documentElement.classList.add('js')",
           }}
         />
+      </head>
+      <body className="font-sans">
+        {/* Strukturierte Daten im <body>: Browser-Erweiterungen verändern oft den <head> (Hydration-Warnungen) */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-      </head>
-      <body className="font-sans">{children}</body>
+        {children}
+      </body>
     </html>
   );
 }

@@ -17,7 +17,7 @@ import { InstagramIcon } from "@/components/ui/SocialIcons";
 const links = [
   { name: "Cases", href: "/cases", match: "/cases" },
   { name: "Über uns", href: "/wir-sind-revice", match: "/wir-sind-revice" },
-  { name: "Blog", href: "/#blog", match: "/blog" },
+  { name: "Blog", href: "/blog", match: "/blog" },
 ];
 
 // true, wenn der Pfad dem Bereich entspricht (inkl. Unterseiten)

@@ -18,8 +18,9 @@ export function generateStaticParams() {
   return cases.map((c) => ({ slug: c.slug }));
 }
 
-export function generateMetadata({ params }) {
-  const item = getCase(params.slug);
+export async function generateMetadata({ params }) {
+  const { slug } = await params;
+  const item = getCase(slug);
   if (!item) return {};
   return {
     title: `${item.title} – ${item.client}`,
@@ -29,8 +30,9 @@ export function generateMetadata({ params }) {
   };
 }
 
-export default function CaseDetail({ params }) {
-  const item = getCase(params.slug);
+export default async function CaseDetail({ params }) {
+  const { slug } = await params;
+  const item = getCase(slug);
   if (!item) notFound();
 
   const index = cases.findIndex((c) => c.slug === item.slug);

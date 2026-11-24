@@ -21,7 +21,7 @@ const columns = [
       { name: "Cases", href: "/cases" },
       { name: "Über uns", href: "/wir-sind-revice" },
       { name: "Werbeagentur Montabaur", href: "/werbeagentur-montabaur" },
-      { name: "Blog", href: "/#blog" },
+      { name: "Blog", href: "/blog" },
       { name: "Impressum", href: "/impressum" },
       {
         name: "Streitschlichtung",

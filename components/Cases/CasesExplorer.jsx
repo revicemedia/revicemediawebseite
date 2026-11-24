@@ -12,6 +12,8 @@ export default function CasesExplorer() {
 
   useEffect(() => {
     const param = new URLSearchParams(window.location.search).get("kategorie");
+    // Filter aus der URL einmalig nach dem Laden übernehmen (window gibt es erst im Browser)
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     if (param && categories.some((c) => c.key === param)) setActive(param);
   }, []);
 
