@@ -11,13 +11,14 @@ const people = [
     linkedin: "https://www.linkedin.com/in/fabian-hanso-2178a5185/",
     imageUrl: "/fabian.jpg",
   },
-  {
-    name: "Markus Nowak",
-    title: "Videograf & Social-Media-Experte",
-    email: "hey@revice-media.com?body=Hallo%20Herr%20Nowak,",
-    linkedin: "https://www.linkedin.com/in/markus-nowak-2b5681419",
-    imageUrl: "", // Platzhalter – Foto liegt bereits als "/markus.jpg" bereit
-  },
+  // Vorerst ausgeblendet – zum Wiederherstellen Kommentarzeichen entfernen
+  // {
+  //   name: "Markus Nowak",
+  //   title: "Videograf & Social-Media-Experte",
+  //   email: "hey@revice-media.com?body=Hallo%20Herr%20Nowak,",
+  //   linkedin: "https://www.linkedin.com/in/markus-nowak-2b5681419",
+  //   imageUrl: "", // Platzhalter – Foto liegt bereits als "/markus.jpg" bereit
+  // },
   {
     name: "Luca Torres Neuer",
     title: "Kundenberatung & Projektleitung",
@@ -25,13 +26,14 @@ const people = [
     linkedin: "https://www.linkedin.com/in/luca-torres-neuer",
     imageUrl: "", // Platzhalter – Foto folgt
   },
-  {
-    name: "Nico Kexel",
-    title: "Kundenberatung & Projektleitung",
-    email: "hey@revice-media.com?body=Hallo%20Herr%20Kexel,",
-    linkedin: "https://www.linkedin.com/in/nico-kexel-4492941b8",
-    imageUrl: "", // Platzhalter – Foto folgt
-  },
+  // Vorerst ausgeblendet – zum Wiederherstellen Kommentarzeichen entfernen
+  // {
+  //   name: "Nico Kexel",
+  //   title: "Kundenberatung & Projektleitung",
+  //   email: "hey@revice-media.com?body=Hallo%20Herr%20Kexel,",
+  //   linkedin: "https://www.linkedin.com/in/nico-kexel-4492941b8",
+  //   imageUrl: "", // Platzhalter – Foto folgt
+  // },
 ];
 
 // Initialen für das Platzhalter-Bild
