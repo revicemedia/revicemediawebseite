@@ -4,22 +4,22 @@ import Reveal from "@/components/Effects/Reveal";
 const steps = [
   {
     name: "Konzeption",
-    description: "Sie erarbeiten gemeinsam mit Ihrem Berater ein passendes Konzept.",
+    description: "Du erarbeitest gemeinsam mit deinem Berater ein passendes Konzept.",
     imageSrc: "/Planning.jpg",
   },
   {
     name: "Umsetzung",
-    description: "Ihr Konzept wird an unser Team übergeben und passgenau umgesetzt.",
+    description: "Dein Konzept wird an unser Team übergeben und passgenau umgesetzt.",
     imageSrc: "/code.jpg",
   },
   {
     name: "Review & Anpassungen",
-    description: "Sie prüfen gemeinsam mit Ihrem Berater das Ergebnis und geben es frei.",
+    description: "Du prüfst gemeinsam mit deinem Berater das Ergebnis und gibst es frei.",
     imageSrc: "/Review.jpg",
   },
   {
     name: "Go Live",
-    description: "Ihre Webseite, App, Kampagne oder Ihr Druckprodukt wird veröffentlicht.",
+    description: "Deine Webseite, App, Kampagne oder dein Druckprodukt wird veröffentlicht.",
     imageSrc: "/live.jpg",
   },
 ];

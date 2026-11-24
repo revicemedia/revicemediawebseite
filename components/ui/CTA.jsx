@@ -7,8 +7,8 @@ import { brand } from "@/brandConfig";
  * `tight`: kein Abstand nach oben – nutzen, wenn davor bereits eine weiße Section steht.
  */
 export default function CTA({
-  title = "Lassen Sie uns gemeinsam etwas Großes starten.",
-  text = "Erzählen Sie uns von Ihrem Vorhaben. Wir melden uns schnellstmöglich und besprechen mit Ihnen unverbindlich die nächsten Schritte.",
+  title = "Lass uns gemeinsam etwas Großes starten.",
+  text = "Erzähl uns von deinem Vorhaben. Wir melden uns schnellstmöglich und besprechen mit dir unverbindlich die nächsten Schritte.",
   subject = "Projektanfrage",
   tight = false,
 }) {

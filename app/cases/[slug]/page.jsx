@@ -24,6 +24,7 @@ export function generateMetadata({ params }) {
   return {
     title: `${item.title} – ${item.client}`,
     description: item.excerpt,
+    alternates: { canonical: `/cases/${item.slug}` },
     openGraph: { images: [item.cover] },
   };
 }
@@ -191,7 +192,7 @@ export default function CaseDetail({ params }) {
         </div>
       </section>
 
-      <CTA tight title="Sie möchten etwas Ähnliches umsetzen?" subject={`Anfrage nach Case: ${item.title}`} />
+      <CTA tight title="Du möchtest etwas Ähnliches umsetzen?" subject={`Anfrage nach Case: ${item.title}`} />
       <Footer />
     </main>
   );

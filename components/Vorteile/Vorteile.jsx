@@ -10,7 +10,7 @@ const features = [
   {
     name: "Schneller Projektstart",
     description:
-      "Wir starten kurz nach Ihrer Anfrage mit der Planung und verschenken so keine kostbare Zeit.",
+      "Wir starten kurz nach deiner Anfrage mit der Planung und verschenken so keine kostbare Zeit.",
     icon: BoltIcon,
   },
   {
@@ -22,13 +22,13 @@ const features = [
   {
     name: "Blitzschneller Support",
     description:
-      "Über unseren Support-Chat beantworten wir Ihre Fragen während und nach dem Projekt.",
+      "Über unseren Support-Chat beantworten wir deine Fragen während und nach dem Projekt.",
     icon: ChatBubbleLeftRightIcon,
   },
   {
     name: "Stetige Updates",
     description:
-      "Moderne Technologien bedeuten: wichtige Updates landen schnell auch in Ihrem Projekt.",
+      "Moderne Technologien bedeuten: wichtige Updates landen schnell auch in deinem Projekt.",
     icon: ArrowPathRoundedSquareIcon,
   },
 ];

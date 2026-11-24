@@ -22,14 +22,16 @@ export default function Hero() {
       <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 pb-16 pt-12 sm:px-6 sm:pt-16 lg:grid-cols-12 lg:gap-8 lg:px-8 lg:pb-24 lg:pt-20">
         {/* Text */}
         <div className="lg:col-span-6">
-          <p className="eyebrow animate-fade-up animate-duration-700">
-            Werbeagentur · {brand.contact.region}
-          </p>
-
-          <h1 className="mt-6 font-display text-[2.6rem] font-semibold leading-[1.05] tracking-tight text-navy animate-fade-up animate-delay-100 animate-duration-700 sm:text-6xl xl:text-7xl">
-            {brand.headlines.heroLines[0]}
-            <br />
-            <span className="text-brand">{brand.headlines.heroLines[1]}</span>
+          {/* H1 enthält das Such-Keyword („Werbeagentur Montabaur“) – optisch bleibt es die Eyebrow */}
+          <h1>
+            <span className="eyebrow animate-fade-up animate-duration-700">
+              Werbeagentur in Montabaur &amp; im Westerwald
+            </span>
+            <span className="mt-6 block font-display text-[2.6rem] font-semibold leading-[1.05] tracking-tight text-navy animate-fade-up animate-delay-100 animate-duration-700 sm:text-6xl xl:text-7xl">
+              {brand.headlines.heroLines[0]}
+              <br />
+              <span className="text-brand">{brand.headlines.heroLines[1]}</span>
+            </span>
           </h1>
 
           <p className="mt-6 max-w-xl text-lg leading-8 text-navy/65 animate-fade-up animate-delay-200 animate-duration-700">

@@ -1,12 +1,7 @@
 import ServicePage from "@/components/ServicePage/ServicePage";
-import { getService } from "@/components/data/services";
+import { serviceMetadata } from "@/components/data/services";
 
-const service = getService("fotografie");
-
-export const metadata = {
-  title: service.name,
-  description: service.page.intro,
-};
+export const metadata = serviceMetadata("fotografie");
 
 export default function Fotografie() {
   return <ServicePage slug="fotografie" />;

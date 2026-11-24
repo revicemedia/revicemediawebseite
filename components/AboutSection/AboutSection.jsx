@@ -11,7 +11,7 @@ const stats = [
 const values = [
   {
     title: "Jung & digital",
-    text: "Wir sind mit Social Media, Apps und dem Web aufgewachsen – und wissen, wie Ihre Zielgruppe tickt.",
+    text: "Wir sind mit Social Media, Apps und dem Web aufgewachsen – und wissen, wie deine Zielgruppe tickt.",
   },
   {
     title: "Alles aus einer Hand",
@@ -46,9 +46,9 @@ export default function About() {
               Reichweite, mehr Anfragen und mehr Umsatz.
             </p>
             <p className="mt-6 text-lg leading-8 text-navy/65">
-              Sie benötigen eine individuelle Lösung, die in unseren Leistungen
-              nicht aufgelistet ist? Schreiben Sie uns gerne – wir schauen
-              gemeinsam, ob wir der richtige Partner für Sie sind.
+              Du brauchst eine individuelle Lösung, die in unseren Leistungen
+              nicht aufgelistet ist? Schreib uns gerne – wir schauen
+              gemeinsam, ob wir der richtige Partner für dich sind.
             </p>
           </Reveal>
 

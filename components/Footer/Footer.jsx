@@ -20,6 +20,7 @@ const columns = [
     items: [
       { name: "Cases", href: "/cases" },
       { name: "Über uns", href: "/wir-sind-revice" },
+      { name: "Werbeagentur Montabaur", href: "/werbeagentur-montabaur" },
       { name: "Blog", href: "/#blog" },
       { name: "Impressum", href: "/impressum" },
       {
@@ -47,10 +48,15 @@ export default function Footer() {
           <div className="lg:col-span-4">
             <img className="h-9 w-auto brightness-0 invert" src="/logo.svg" alt="Revice Media" />
             <p className="mt-6 max-w-xs text-sm leading-6 text-white/60">
-              Junge Werbeagentur für Web, App, Social Media, Foto & Video. Wir
-              unterstützen Sie bei der Umsetzung Ihrer Webseite, Ihrer Kampagne oder
-              Ihrer ganzen Idee.
+              Junge Werbeagentur aus Montabaur für Web, App, Social Media, Foto &
+              Video. Wir unterstützen dich bei der Umsetzung deiner Webseite, deiner
+              Kampagne oder deiner ganzen Idee.
             </p>
+            <address className="mt-5 text-sm not-italic leading-6 text-white/60">
+              {brand.contact.address.street}
+              <br />
+              {brand.contact.address.zip} {brand.contact.address.city} (bei Montabaur)
+            </address>
             <a
               href={`mailto:${brand.contact.email}`}
               className="mt-6 inline-block font-display text-lg font-medium text-white underline decoration-brand decoration-2 underline-offset-8 transition-colors hover:text-brand-100"
@@ -100,7 +106,7 @@ export default function Footer() {
 
         <div className="mt-16 flex flex-col gap-2 border-t border-white/10 pt-8 text-xs text-white/50 sm:flex-row sm:justify-between">
           <p>&copy; {new Date().getFullYear()} Revice Media</p>
-          <p>{brand.contact.region} · deutschlandweit digital</p>
+          <p>Werbeagentur in {brand.contact.region} · deutschlandweit digital</p>
         </div>
       </div>
     </footer>

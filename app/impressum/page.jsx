@@ -2,7 +2,10 @@ import Footer from "@/components/Footer/Footer";
 import Navigation from "@/components/Navigation/Navigation";
 import SubPageHeader from "@/components/SubPageHeader/SubPageHeader";
 
-export const metadata = { title: "Impressum" };
+export const metadata = {
+  title: "Impressum",
+  alternates: { canonical: "/impressum" },
+};
 
 export default function Impressum() {
   return (

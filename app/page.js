@@ -9,6 +9,10 @@ import BlogSectionSmall from "@/components/BlogSectionSmall/BlogSectionSmall";
 import CTA from "@/components/ui/CTA";
 import Footer from "@/components/Footer/Footer";
 
+export const metadata = {
+  alternates: { canonical: "/" },
+};
+
 export default function Home() {
   return (
     <main>

@@ -6,9 +6,10 @@ import SubPageHeader from "@/components/SubPageHeader/SubPageHeader";
 import CTA from "@/components/ui/CTA";
 
 export const metadata = {
-  title: "Über uns",
+  title: "Über uns – Werbeagentur aus Montabaur",
+  alternates: { canonical: "/wir-sind-revice" },
   description:
-    "Revice Media ist eine junge Werbeagentur für Web, App, Social Media, Foto & Video. Lernen Sie uns kennen.",
+    "Revice Media ist eine junge Werbeagentur aus Montabaur im Westerwald für Web, App, Social Media, Foto & Video. Lerne uns kennen.",
 };
 
 export default function WirSindRevice() {

@@ -114,7 +114,7 @@ export default function FocusServices() {
         <Reveal className="mt-10 flex flex-col gap-4 rounded-3xl border border-navy/10 p-6 sm:p-8 lg:flex-row lg:items-center lg:justify-between">
           <div>
             <p className="font-display text-lg font-semibold text-navy">Und außerdem …</p>
-            <p className="text-sm text-navy/55">Alles, was Ihren Auftritt rund macht.</p>
+            <p className="text-sm text-navy/55">Alles, was deinen Auftritt rund macht.</p>
           </div>
           <ul className="flex flex-wrap gap-2">
             {moreServices.map((s) => (

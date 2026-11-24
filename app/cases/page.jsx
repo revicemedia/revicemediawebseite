@@ -5,7 +5,8 @@ import CasesExplorer from "@/components/Cases/CasesExplorer";
 import CTA from "@/components/ui/CTA";
 
 export const metadata = {
-  title: "Cases",
+  title: "Cases – Projekte unserer Werbeagentur aus Montabaur",
+  alternates: { canonical: "/cases" },
   description:
     "Ausgewählte Projekte von Revice Media: Webentwicklung, App-Entwicklung, Social Media, Fotografie, Videografie und Grafikdesign.",
 };
@@ -24,7 +25,7 @@ export default function CasesPage() {
           <CasesExplorer />
         </div>
       </section>
-      <CTA tight title="Ihr Projekt könnte das nächste sein." />
+      <CTA tight title="Dein Projekt könnte das nächste sein." />
       <Footer />
     </main>
   );

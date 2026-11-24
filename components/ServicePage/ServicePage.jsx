@@ -73,8 +73,8 @@ export default function ServicePage({ slug }) {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionHeading
             eyebrow="Leistungsumfang"
-            title="Was wir für Sie umsetzen"
-            text="Ob einzelner Baustein oder Komplettpaket – Sie entscheiden, was Sie brauchen."
+            title="Was wir für dich umsetzen"
+            text="Ob einzelner Baustein oder Komplettpaket – du entscheidest, was du brauchst."
           />
           <ul className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {page.deliverables.map((item, i) => (

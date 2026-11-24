@@ -150,7 +150,7 @@ export default function Navigation() {
                       className="group flex items-center justify-between border-t border-navy/10 bg-navy px-8 py-4 text-sm font-medium text-white"
                     >
                       <span>
-                        Sehen Sie sich an, was wir bereits umgesetzt haben
+                        Sieh dir an, was wir bereits umgesetzt haben
                       </span>
                       <span className="flex items-center gap-2 font-semibold">
                         Zu den Cases
