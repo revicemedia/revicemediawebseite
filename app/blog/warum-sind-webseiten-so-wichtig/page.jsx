@@ -69,6 +69,7 @@ export default function BlogSeite() {
     ],
     coverImage: "/BlogPost1.jpg",
     categories: ["Webseiten", "Werbung", "Grundlagen"],
+    cta: { title: "Du brauchst eine neue Webseite?" },
     blogfaq: {
       headline: "5 Gründe für eine professionelle Webseite",
       display: true,
@@ -97,11 +98,27 @@ export default function BlogSeite() {
     },
   };
 
+  // Strukturierte Daten für Google (Artikel)
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: data.headline,
+    datePublished: "2023-09-26",
+    image: `https://www.revice-media.com${data.coverImage}`,
+    author: { "@type": "Person", name: data.author.name },
+    publisher: { "@type": "Organization", name: "Revice Media" },
+    mainEntityOfPage: "https://www.revice-media.com/blog/warum-sind-webseiten-so-wichtig",
+  };
+
   return (
-    <div className="bg-white">
+    <main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Navigation />
       <BlogDetails data={data} />
       <Footer />
-    </div>
+    </main>
   );
 }
