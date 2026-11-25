@@ -6,14 +6,16 @@ import { PlusIcon } from "@heroicons/react/24/outline";
 /**
  * Einheitliches Akkordeon (FAQ, Blog, …).
  * items: [{ q: "Frage / Titel", a: "Antwort / Text" }]
+ * defaultOpen: Index des Punkts, der beim Laden bereits geöffnet ist (optional)
  */
-export default function Accordion({ items, className = "" }) {
+export default function Accordion({ items, className = "", defaultOpen }) {
   return (
     <dl className={`space-y-3 ${className}`}>
-      {items.map((item) => (
+      {items.map((item, i) => (
         <Disclosure
           as="div"
           key={item.q}
+          defaultOpen={i === defaultOpen}
           className={({ open }) =>
             `rounded-2xl border bg-white transition-all ${
               open ? "border-navy/15 shadow-lg shadow-navy/5" : "border-navy/10"

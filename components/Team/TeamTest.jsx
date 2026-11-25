@@ -7,21 +7,21 @@ const people = [
   {
     name: "Fabian Hanso",
     title: "Gründer",
-    email: "f.hanso@revice-media.com?body=Sehr%20geehrter%20Herr%20Hanso,",
+    email: "f.hanso@revice-media.com?body=Hallo%20Fabian,",
     linkedin: "https://www.linkedin.com/in/fabian-hanso-2178a5185/",
     imageUrl: "/fabian.jpg",
   },
   {
     name: "Markus Nowak",
     title: "Gründer",
-    email: "hey@revice-media.com?body=Hallo%20Herr%20Nowak,",
+    email: "m.nowak@revice-media.com?body=Hallo%20Markus,",
     linkedin: "https://www.linkedin.com/in/markus-nowak-2b5681419",
     imageUrl: "/markus-nowak.jpg",
   },
   {
     name: "Luca Torres Neuer",
     title: "Kundenberatung & Projektleitung",
-    email: "l.torres@revice-media.com?body=Sehr%20geehrter%20Herr%20Torres%20Neuer,",
+    email: "l.torres@revice-media.com?body=Hallo%20Luca,",
     linkedin: "https://www.linkedin.com/in/luca-torres-neuer",
     imageUrl: "", // Platzhalter – Foto folgt
   },
@@ -29,7 +29,7 @@ const people = [
   // {
   //   name: "Nico Kexel",
   //   title: "Kundenberatung & Projektleitung",
-  //   email: "hey@revice-media.com?body=Hallo%20Herr%20Kexel,",
+  //   email: "hey@revice-media.com?body=Hallo%20Nico,",
   //   linkedin: "https://www.linkedin.com/in/nico-kexel-4492941b8",
   //   imageUrl: "", // Platzhalter – Foto folgt
   // },

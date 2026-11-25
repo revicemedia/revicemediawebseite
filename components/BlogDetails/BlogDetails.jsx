@@ -119,6 +119,7 @@ export default function BlogDetails({ data }) {
                 </h2>
                 <Accordion
                   className="mt-8"
+                  defaultOpen={0}
                   items={data.blogfaq.data.map((f) => ({ q: f.headline, a: f.text }))}
                 />
               </div>
