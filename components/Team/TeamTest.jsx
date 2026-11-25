@@ -13,7 +13,7 @@ const people = [
   },
   {
     name: "Markus Nowak",
-    title: "Videograf & Social-Media-Experte",
+    title: "Gründer",
     email: "hey@revice-media.com?body=Hallo%20Herr%20Nowak,",
     linkedin: "https://www.linkedin.com/in/markus-nowak-2b5681419",
     imageUrl: "/markus-nowak.jpg",
