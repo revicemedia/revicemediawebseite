@@ -11,14 +11,13 @@ const people = [
     linkedin: "https://www.linkedin.com/in/fabian-hanso-2178a5185/",
     imageUrl: "/fabian.jpg",
   },
-  // Vorerst ausgeblendet – zum Wiederherstellen Kommentarzeichen entfernen
-  // {
-  //   name: "Markus Nowak",
-  //   title: "Videograf & Social-Media-Experte",
-  //   email: "hey@revice-media.com?body=Hallo%20Herr%20Nowak,",
-  //   linkedin: "https://www.linkedin.com/in/markus-nowak-2b5681419",
-  //   imageUrl: "", // Platzhalter – Foto liegt bereits als "/markus.jpg" bereit
-  // },
+  {
+    name: "Markus Nowak",
+    title: "Videograf & Social-Media-Experte",
+    email: "hey@revice-media.com?body=Hallo%20Herr%20Nowak,",
+    linkedin: "https://www.linkedin.com/in/markus-nowak-2b5681419",
+    imageUrl: "/markus-nowak.jpg",
+  },
   {
     name: "Luca Torres Neuer",
     title: "Kundenberatung & Projektleitung",
