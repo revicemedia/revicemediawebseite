@@ -3,6 +3,7 @@
 const logos = [
   { src: "/kunden/2die4.png", alt: "2DIE4 Sports", large: true },
   { src: "/kunden/waeller-united.svg", alt: "JSG Wäller United", name: "JSG Wäller United", large: true, white: true },
+  { src: "/kunden/tus-ahrbach.png", alt: "TuS Ahrbach", name: "TuS Ahrbach", large: true, white: true },
   { src: "/kunden/anitahanso.svg", alt: "Logopädie Anita Hanso" },
   { src: "/kunden/Haarkulade_dunkel.svg", alt: "Haarkulade" },
   { src: "/kunden/Melodia.svg", alt: "Melodia" },
